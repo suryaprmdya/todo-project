@@ -3,7 +3,7 @@ import React from "react";
 function TodoInput() {
   return (
     <div className="flex flex-row justify-center mt-5">
-      <form action="" className="w-1/3 justify-center flex">
+      <form action="" className="w-full sm:w-1/3 justify-center flex">
         <input
           type="text"
           placeholder="Tambah To Do Disini"
