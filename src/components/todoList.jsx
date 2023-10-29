@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {getTodo} from "../redux/reducers/todoReducer";
+import { getTodo } from "../redux/actions/todoAction";
 
 function TodoList() {
   const dispacth = useDispatch();
