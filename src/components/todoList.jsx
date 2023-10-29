@@ -1,18 +1,22 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import { deleteTodo, getTodo } from "../redux/actions/todoAction";
+import {deleteTodo, editIsFinished, getTodo} from "../redux/actions/todoAction";
 
 function TodoList() {
   const dispatch = useDispatch();
   const {todos} = useSelector((state) => state.todo);
-
   useEffect(() => {
     dispatch(getTodo());
   }, []);
 
   const handleDelete = (id) => {
-    dispatch(deleteTodo(id))
-  }
+    dispatch(deleteTodo(id));
+  };
+
+  const handleIsFinished = (id, newIsFinished) => {
+    // console.log(id);
+    dispatch(editIsFinished(id, newIsFinished));
+  };
 
   return (
     <>
@@ -23,8 +27,17 @@ function TodoList() {
             className="flex flex-row border-4 w-full sm:w-1/3 justify-between px-4 py-4 text-lg rounded-lg "
           >
             <div className="flex flex-row gap-3">
-              <input type="checkbox" name="" id="" className="w-{100%}" />
-              <span>{todo.value}</span>
+              <input
+                type="checkbox"
+                name=""
+                id="status"
+                checked={todo.isFinished}
+                onChange={() => handleIsFinished(todo.id, !todo.isFinished)}
+                onClick={() => handleIsFinished(todo.id)}
+              />
+              <span className={todo.isFinished ? "line-through" : ""}>
+                {todo.value}
+              </span>
             </div>
             <div className="flex flex-row items-center gap-3">
               <button>

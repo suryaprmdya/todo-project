@@ -10,7 +10,7 @@ function TodoInput() {
     e.preventDefault();
     let newTodo = {
       value: input,
-      status: false,
+      isFinished: false,
     };
     dispatch(addTodo(newTodo));
     setInput("")
