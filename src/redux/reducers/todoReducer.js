@@ -12,12 +12,9 @@ function todoReducer(state = intialState, action) {
         isLoading: false,
         todos: action.payload,
       };
-
     default:
       return state;
   }
 }
-
-
 
 export default todoReducer;
