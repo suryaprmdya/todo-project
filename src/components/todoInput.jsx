@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import {useDispatch} from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { addTodo } from "../redux/actions/todoAction";
 
 function TodoInput() {
@@ -13,7 +13,7 @@ function TodoInput() {
       isFinished: false,
     };
     dispatch(addTodo(newTodo));
-    setInput("")
+    setInput("");
   };
 
   return (

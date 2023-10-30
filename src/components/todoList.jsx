@@ -1,13 +1,9 @@
-import React, {useEffect, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {deleteTodo, editIsFinished, getTodo} from "../redux/actions/todoAction";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteTodo, editIsFinished } from "../redux/actions/todoAction";
 
 function TodoList() {
   const dispatch = useDispatch();
-  const {todos} = useSelector((state) => state.todo);
-  useEffect(() => {
-    dispatch(getTodo());
-  }, []);
+  const { todos } = useSelector((state) => state.todo);
 
   const handleDelete = (id) => {
     dispatch(deleteTodo(id));

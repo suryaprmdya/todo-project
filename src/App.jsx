@@ -1,16 +1,24 @@
 import React from "react";
-import TodoHeader from "./components/todoHeader";
 import TodoInput from "./components/todoInput";
-import TodoList from "./components/todoList";
-import TodoFilter from "./components/todoFilter";
+import { Routes, Route } from "react-router-dom";
+import AllTodos from "./pages/allTodos";
+import ActiveTodos from "./pages/activeTodos";
+import CompletedTodos from "./pages/completedTodos";
 
 function App() {
   return (
     <>
-      <TodoHeader />
+      <div className="text-center mt-28">
+        <h1 className="text-3xl font-extrabold tracking-wide text-neutral-700">
+          What's the plan for today?
+        </h1>
+      </div>
       <TodoInput />
-      <TodoFilter />
-      <TodoList />
+      <Routes>
+        <Route path="/" element={<AllTodos />} />
+        <Route path="/activeTodos" element={<ActiveTodos />} />
+        <Route path="/completedTodos" element={<CompletedTodos />} />
+      </Routes>
     </>
   );
 }
